@@ -1,0 +1,4 @@
+# 忽略
+
+/target
+/Cargo.lock

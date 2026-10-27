@@ -1,0 +1,21 @@
+[package]
+name = "nostd-bin"
+version = "0.1.0"
+edition = "2024"
+
+
+
+
+[dependencies]
+nostd-lib = { path = "../nostd-lib" }
+
+# cortex-m-rt 提供 Reset 之后的启动代码
+cortex-m-rt = { version = "0.7", features = ["set-sp"] }
+# semihosting 让 guest 通过调试通道直接往 QEMU 的宿主终端写字
+cortex-m-semihosting = "0.5"
+
+[[bin]]
+name="nostd-bin"
+path="src/main.rs"
+test=false # 不要为这个裸机二进制程序构建默认的测试入口。
+bench=false # 关闭该二进制目标的基准测试构建

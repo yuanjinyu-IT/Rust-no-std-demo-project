@@ -1,0 +1,3 @@
+[alias]
+bare = "build -p nostd-bin --target thumbv7em-none-eabihf --config target.thumbv7em-none-eabihf.rustflags=['-C','link-arg=-Tlink.x']"
+run-bare = "run -p nostd-bin --target thumbv7em-none-eabihf --config target.thumbv7em-none-eabihf.rustflags=['-C','link-arg=-Tlink.x'] --config target.thumbv7em-none-eabihf.runner=['qemu-system-arm','-machine','lm3s6965evb','-display','none','-semihosting-config','enable=on,target=native','-kernel']"
